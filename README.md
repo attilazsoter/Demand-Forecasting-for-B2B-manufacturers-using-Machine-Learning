@@ -1,47 +1,55 @@
 # Demand Forecasting for B2B manufacturers using Machine Learning
 
-This repository contains  a machine learning-based demand forecasting model tailored for manufacturers operating within the B2B environment. These manufacturers typically supply products to consumer goods companies, wholesalers, or retailers, rather than directly to end consumers. Our model was focused on short-term demand forecasting (a 6-month horizon) using readily accessible operational data, such as historical demand, order backlog levels, inventory levels across the distribution channel, and seasonal indicators. 
+This project applies machine learning techniques to build a demand forecasting model tailored for manufacturers operating in the B2B sector. Unlike B2C environments, these manufacturers typically supply products to wholesalers, distributors, or retailers. Our focus was on short-term demand forecasting (6-month horizon) using easily accessible operational data such as historical demand, order backlog, inventory levels across distribution channels, and seasonal indicators.
 
-Manufacturing companies often struggle with demand forecasting despite having access to order backlog and inventory data. Traditional approaches rely on spreadsheets with inconsistencies and redundancies.
+Accurate demand forecasting remains a key challenge for many manufacturers, even with access to backlog and inventory data. Traditional spreadsheet-based approaches often lead to inconsistencies and inefficiencies. This project demonstrates how machine learning models can provide more reliable forecasts.
 
 
-## Methods and Results
+## Project Workflow
 
-We structured the project in our Jupiter Notebook (Python notebook) into the following phases:
+The project was developed in Jupyter Notebooks and divided into two main phases:
 - Data Sourcing, Data Preparation and Exploratory Data Analysis (EDA)
 - Model Setup and Implementation
 
 
-### Data Sourcing, Data Preparation and Exploratory Data Analysis (EDA)
+### Data Sourcing, Data Preparation and EDA
 
 For the model development, we used the Historical Product Demand dataset from Kaggle (https://www.kaggle.com/datasets/felixzhao/productdemandforecasting/data).
 The dataset included historical product demand volumes between 2011-2017 for a manufacturing company with nearly 2,200 products.
-The dataset included the following columns/attributes: (i) Product code, (ii) Warehouse, (iii) Product Category (parent attribute of product code), (iv) Date (when the customer needed the product), and (v) Order Demand (volume). We removed the Warehouse attribute and we added the following 3 attributes (we've created synthetic data for these new attributes):
-- Channel inventory (levels of inventory of the manufacturer's products in th distribution channel)
+The original dataset included the following columns/attributes:
+- Product code,
+- Warehouse,
+- Product Category (parent attribute of product code),
+- Date (when the customer needed the product),
+- Order Demand (volume).
+For our analysis, we removed the Warehouse attribute and we added the following 3 attributes (we've created synthetic data for these new attributes):
+- Channel inventory (levels of inventory of the manufacturer's products in the distribution channel)
 - Order backlog
 - High-season binary attrubute
 
 
 ### Model Setup and Implementation
 
-We used the following input variables for the models:
+We defined Order Demand (volume) as the target variable.
+The following input features were used:
 - Average of the (i) order demand of the same month last year (reference period month), and order demand from the months (ii) prior to and (iii) following the reference period month
 - Order backlog
 - High-season binary attrubute
 - Channel inventory
 
-And our target (dependent) variable was order demand (volume) - this is what we tried to predict with the models.
+The dataset was split into:
+- Training set: 2012–2015 data
+- Testing set: First half of 2016
 
-We split our dataset into training data (2012-2015 data) and testing data (H1 2016 data)
-
-We used the following main techniques 
+We applied the following main techniques 
 - Multiple Linear Regression
 - Polynomial Regression
 - Random Forest Regressor
 - XGBoost Regressor
 - LSTM Neural Network
 
-In addition, we also applied ensemble techniques.
+In addition, we experimented with ensemble approaches.
+
 
 ### Results
 
@@ -52,9 +60,6 @@ In addition, as the original Dataset was extremely volatile, we created a more n
 The table below compares the prediction results of the same models between the original (extremely volatile) and more normalized dataset:
 
 <img width="953" height="457" alt="12" src="https://github.com/user-attachments/assets/8c795c95-f360-49b8-b673-21ade17c8edf" />
-
-
-
 
 
 #### Required Python Packages
@@ -70,3 +75,13 @@ The table below compares the prediction results of the same models between the o
 - seaborn 
 - matplotlib
 - xgboost
+
+
+#### Acknowledgements
+
+This project was completed as part of the Machine Learning course in the Master of Applied Data Science (MADS) program at the University of North Carolina at Chapel Hill.
+
+The work was a team collaboration by:
+- Jason Huang
+- Lalsa Pandit
+- Attila Zsoter
