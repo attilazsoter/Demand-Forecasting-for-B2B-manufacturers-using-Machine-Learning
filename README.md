@@ -45,12 +45,15 @@ In addition, we also applied ensemble techniques.
 
 ### Results
 
-<img width="617" alt="image" src="https://github.com/user-attachments/assets/92092d6e-e541-4c10-b692-242f2036d4a5" />
+<img width="617" height="506" alt="11" src="https://github.com/user-attachments/assets/1f91f9f6-658d-4c57-b446-86a14bcc5cc5" />
+
 
 In addition, as the original Dataset was extremely volatile, we created a more normalized version of the dataset (in a separate version of our notebook) by eliminating part of the extreme volatility and we run the same prediction models on this more normalized dataset.
 The table below compares the prediction results of the same models between the original (extremely volatile) and more normalized dataset:
 
-<img width="952" alt="image" src="https://github.com/user-attachments/assets/b698b6e9-44c5-4d5d-bc9e-2de038d23def" />
+<img width="953" height="457" alt="12" src="https://github.com/user-attachments/assets/8c795c95-f360-49b8-b673-21ade17c8edf" />
+
+
 
 
 
